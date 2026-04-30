@@ -1,0 +1,12 @@
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\bin\Debug\net8.0\OnlyTasks.Domain.deps.json
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\bin\Debug\net8.0\OnlyTasks.Domain.dll
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\bin\Debug\net8.0\OnlyTasks.Domain.pdb
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\OnlyTasks.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\OnlyTasks.Domain.AssemblyInfoInputs.cache
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\OnlyTasks.Domain.AssemblyInfo.cs
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\OnlyTasks.Domain.csproj.CoreCompileInputs.cache
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\OnlyTasks.Domain.dll
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\refint\OnlyTasks.Domain.dll
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\OnlyTasks.Domain.pdb
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\ref\OnlyTasks.Domain.dll
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\OnlyTasks.Domain.csproj.AssemblyReference.cache

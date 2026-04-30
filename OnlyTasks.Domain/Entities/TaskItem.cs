@@ -1,0 +1,30 @@
+﻿using OnlyTasks.Domain.Events;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using TaskStatus = OnlyTasks.Domain.Enums.TaskStatus;
+
+namespace OnlyTasks.Domain.Entities
+{
+    public class TaskItem : Entity
+    {
+        public Guid Id { get; private set; }
+        public Guid? ProjectId { get; init; }
+        public string Title { get; private set; }
+        public string Description { get; private set; }
+        public TaskStatus Status { get; private set; }
+        public Project? Project { get; set; }
+
+        public TaskItem(string title, Guid? projectId, string description = "")
+        {
+            Id = Guid.NewGuid();
+            ProjectId = projectId;
+            Title = title;
+            Description = description;
+            Status = TaskStatus.Ongoing;
+
+            AddDomainEvent(new TaskCreatedDomainEvent(Id));
+        }
+    }
+}
