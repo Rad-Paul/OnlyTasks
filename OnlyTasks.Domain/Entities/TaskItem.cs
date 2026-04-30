@@ -11,16 +11,16 @@ namespace OnlyTasks.Domain.Entities
     {
         public Guid Id { get; private set; }
         public Guid? ProjectId { get; init; }
-        public string Title { get; private set; }
+        public string Name { get; private set; }
         public string Description { get; private set; }
         public TaskStatus Status { get; private set; }
         public Project? Project { get; set; }
 
-        public TaskItem(string title, Guid? projectId, string description = "")
+        public TaskItem(string name, Guid? projectId, string description = "")
         {
             Id = Guid.NewGuid();
             ProjectId = projectId;
-            Title = title;
+            Name = name;
             Description = description;
             Status = TaskStatus.Ongoing;
 

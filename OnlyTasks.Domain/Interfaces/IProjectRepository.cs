@@ -9,6 +9,7 @@ namespace OnlyTasks.Domain.Interfaces
 {
     public interface IProjectRepository
     {
-        Task CreateProjectAsync(Project project);
+        Task CreateAsync(Project project);
+        Task<IEnumerable<Project>> GetAllAsync();
     }
 }

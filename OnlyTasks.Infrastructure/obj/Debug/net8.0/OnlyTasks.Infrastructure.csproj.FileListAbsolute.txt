@@ -17,3 +17,4 @@ C:\coding\.NET\OnlyTasks\OnlyTasks.Infrastructure\obj\Debug\net8.0\OnlyTasks.Inf
 C:\coding\.NET\OnlyTasks\OnlyTasks.Infrastructure\obj\Debug\net8.0\ref\OnlyTasks.Infrastructure.dll
 C:\coding\.NET\OnlyTasks\OnlyTasks.Infrastructure\bin\Debug\net8.0\OnlyTasks.Infrastructure.runtimeconfig.json
 C:\coding\.NET\OnlyTasks\OnlyTasks.Infrastructure\obj\Debug\net8.0\OnlyTasks.Infrastructure.genruntimeconfig.cache
+C:\coding\.NET\OnlyTasks\OnlyTasks.Infrastructure\obj\Debug\net8.0\OnlyTasks.Infrastructure.sourcelink.json

@@ -13,3 +13,4 @@ C:\coding\.NET\OnlyTasks\OnlyTasks.Application\obj\Debug\net8.0\OnlyTasks.Applic
 C:\coding\.NET\OnlyTasks\OnlyTasks.Application\obj\Debug\net8.0\refint\OnlyTasks.Application.dll
 C:\coding\.NET\OnlyTasks\OnlyTasks.Application\obj\Debug\net8.0\OnlyTasks.Application.pdb
 C:\coding\.NET\OnlyTasks\OnlyTasks.Application\obj\Debug\net8.0\ref\OnlyTasks.Application.dll
+C:\coding\.NET\OnlyTasks\OnlyTasks.Application\obj\Debug\net8.0\OnlyTasks.Application.sourcelink.json

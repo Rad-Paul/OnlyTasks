@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace OnlyTasks.Application.Features.Tasks.Commands.CreateTask
 {
     public record CreateTaskCommand(
-        string Title,
+        string Name,
         string Description,
         Guid ProjectId
     ) : IRequest<Guid>;

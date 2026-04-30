@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace OnlyTasks.Application.Features.Tasks.Commands.CreateProject
 {
     public record CreateProjectCommand(
-        string name, 
-        string description
+        string Name, 
+        string Description
     ) : IRequest<Guid>;
 }

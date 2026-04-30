@@ -34,6 +34,16 @@
             "description": "OK"
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Project"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/tasks": {
@@ -87,7 +97,7 @@
       "CreateTaskCommand": {
         "type": "object",
         "properties": {
-          "title": {
+          "name": {
             "type": "string",
             "nullable": true
           },

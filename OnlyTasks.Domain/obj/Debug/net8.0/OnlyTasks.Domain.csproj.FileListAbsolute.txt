@@ -10,3 +10,4 @@ C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\refint\OnlyTasks.Doma
 C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\OnlyTasks.Domain.pdb
 C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\ref\OnlyTasks.Domain.dll
 C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\OnlyTasks.Domain.csproj.AssemblyReference.cache
+C:\coding\.NET\OnlyTasks\OnlyTasks.Domain\obj\Debug\net8.0\OnlyTasks.Domain.sourcelink.json

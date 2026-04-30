@@ -21,13 +21,13 @@ namespace OnlyTasks.Application.Features.Tasks.Commands.CreateProject
         public async Task<Guid> Handle(CreateProjectCommand command, CancellationToken ct)
         {
             Project project = new Project(
-                name: command.name,
-                description: command.description
+                name: command.Name,
+                description: command.Description
             );
 
             try
             {
-                await _repository.CreateProjectAsync(project);
+                await _repository.CreateAsync(project);
             }catch (Exception ex)
             {
                 Console.WriteLine($"Failed to create project. Exception:{ex}");

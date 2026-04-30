@@ -11,7 +11,7 @@ namespace OnlyTasks.Application.Features.Tasks.Commands.CreateTask
     {
         public CreateTaskValidator() 
         {
-            RuleFor(x => x.Title)
+            RuleFor(x => x.Name)
                 .NotEmpty()
                 .MaximumLength(100);
 

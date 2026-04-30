@@ -23,7 +23,7 @@ namespace OnlyTasks.Application.Features.Tasks.Commands.CreateTask
         public async Task<Guid> Handle(CreateTaskCommand request, CancellationToken token)
         {
             TaskItem task = new TaskItem(
-                title: request.Title,
+                name: request.Name,
                 description: request.Description,
                 projectId: request.ProjectId
             );

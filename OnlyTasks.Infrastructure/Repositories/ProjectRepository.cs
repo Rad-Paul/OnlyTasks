@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
+using OnlyTasks.Application.Features.DTOs;
 using OnlyTasks.Domain.Entities;
 using OnlyTasks.Domain.Interfaces;
 using OnlyTasks.Infrastructure.Required;
@@ -21,12 +23,19 @@ namespace OnlyTasks.Infrastructure.Repositories
             _mediator = mediator;
         }
 
-        public async Task CreateProjectAsync(Project project)
+        public async Task CreateAsync(Project project)
         {
             await _context.Projects.AddAsync(project);
             await _context.SaveChangesAsync();
 
             await DispatchDomainEvents(project);
+        }
+
+        public async Task<IEnumerable<Project>> GetAllAsync()
+        {
+            List<Project> projects = await _context.Projects.ToListAsync();
+
+            return projects;
         }
 
         public async Task DispatchDomainEvents(Project project)
@@ -38,5 +47,6 @@ namespace OnlyTasks.Infrastructure.Repositories
 
             project.ClearDomainEvents();
         }
+
     }
 }

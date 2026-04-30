@@ -1,5 +1,6 @@
 using OnlyTasks.Application.Features.Tasks.Commands.CreateProject;
 using OnlyTasks.Application.Features.Tasks.Commands.CreateTask;
+using OnlyTasks.Application.Features.Tasks.Queries.Projects.GetProjects;
 using OnlyTasks.Infrastructure;
 
 namespace OnlyTasks
@@ -13,10 +14,7 @@ namespace OnlyTasks
             // Add services to the container.
 
             builder.Services.AddControllers();
-            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies([
-                    typeof(CreateTaskHandler).Assembly,
-                    typeof(CreateProjectHandler).Assembly
-                ]));
+            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateTaskHandler).Assembly));
             builder.Services.AddInfrastructure();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

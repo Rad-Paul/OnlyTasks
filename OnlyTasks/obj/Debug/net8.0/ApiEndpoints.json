@@ -16,6 +16,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "OnlyTasks.Api.Controllers.ProjectController",
+    "Method": "GetAll",
+    "RelativePath": "api/projects",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "OnlyTasks.Api.Controllers.TasksController",
     "Method": "Create",
     "RelativePath": "api/tasks",

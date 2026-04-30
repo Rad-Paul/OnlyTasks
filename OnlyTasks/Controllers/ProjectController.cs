@@ -1,6 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using OnlyTasks.Application.Features.DTOs;
 using OnlyTasks.Application.Features.Tasks.Commands.CreateProject;
+using OnlyTasks.Application.Features.Tasks.Queries.Projects.GetProjects;
+using OnlyTasks.Domain.Entities;
+using System.Net;
 
 namespace OnlyTasks.Api.Controllers
 {
@@ -20,6 +24,13 @@ namespace OnlyTasks.Api.Controllers
         {
             Guid id = await _mediator.Send(command);
             return Ok(id);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            IEnumerable<ProjectDto> projects = await _mediator.Send(new GetProjectsQuery());
+            return Ok(projects);
         }
     }
 }
