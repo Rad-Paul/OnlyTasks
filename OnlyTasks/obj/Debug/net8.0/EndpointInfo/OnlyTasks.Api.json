@@ -46,7 +46,67 @@
         }
       }
     },
+    "/api/projects{projectId}/tasks/{id}": {
+      "get": {
+        "tags": [
+          "ProjectTasks"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/tasks": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetTasksQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetTasksQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetTasksQuery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
       "post": {
         "tags": [
           "Tasks"
@@ -107,7 +167,19 @@
           },
           "projectId": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetTasksQuery": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           }
         },
         "additionalProperties": false

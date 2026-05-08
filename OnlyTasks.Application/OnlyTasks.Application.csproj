@@ -16,9 +16,4 @@
     <ProjectReference Include="..\OnlyTasks.Domain\OnlyTasks.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Projects\Commands\" />
-    <Folder Include="Features\Projects\Queries\" />
-  </ItemGroup>
-
 </Project>

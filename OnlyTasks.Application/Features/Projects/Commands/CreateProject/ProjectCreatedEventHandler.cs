@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using OnlyTasks.Application.Features.Projects.Commands.CreateProject;
 using OnlyTasks.Application.Interfaces;
 using OnlyTasks.Domain.Events;
 using System;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlyTasks.Application.Features.Tasks.Commands.CreateProject
+namespace OnlyTasks.Application.Features.Projects.Commands.CreateProject
 {
     public class ProjectCreatedEventHandler : INotificationHandler<ProjectCreatedDomainEvent>
     {

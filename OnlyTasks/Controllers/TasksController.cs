@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using OnlyTasks.Application.Features.DTOs;
 using OnlyTasks.Application.Features.Tasks.Commands.CreateTask;
+using OnlyTasks.Application.Features.Tasks.Queries.GetTasks;
 
 namespace OnlyTasks.Api.Controllers
 {
@@ -9,10 +11,16 @@ namespace OnlyTasks.Api.Controllers
     public class TasksController : ControllerBase
     {
         private readonly IMediator _mediator;
-
-        public TasksController(IMediator mediator)
+        public TasksController(IMediator mediator) 
         {
             _mediator = mediator;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTasks(GetTasksQuery query)
+        {
+            IEnumerable<TaskItemDto> tasks = await _mediator.Send(query);
+            return Ok(tasks);
         }
 
         [HttpPost]

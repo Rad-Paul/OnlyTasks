@@ -1,6 +1,0 @@
-@OnlyTasks_HostAddress = http://localhost:5098
-
-GET {{OnlyTasks_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

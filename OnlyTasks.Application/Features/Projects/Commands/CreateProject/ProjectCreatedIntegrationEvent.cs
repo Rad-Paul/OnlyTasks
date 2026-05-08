@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlyTasks.Application.Features.Tasks.Commands.CreateProject
+namespace OnlyTasks.Application.Features.Projects.Commands.CreateProject
 {
     public class ProjectCreatedIntegrationEvent
     {

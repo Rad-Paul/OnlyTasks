@@ -9,5 +9,6 @@ namespace OnlyTasks.Domain.Interfaces
     public interface ITaskRepository
     {
         Task CreateTaskAsync(TaskItem task);
+        Task<IEnumerable<TaskItem>> GetTasksAsync(Guid? id);
     }
 }

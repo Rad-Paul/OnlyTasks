@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using OnlyTasks.Application.Features.DTOs;
-using OnlyTasks.Application.Features.Tasks.Commands.CreateProject;
-using OnlyTasks.Application.Features.Tasks.Queries.Projects.GetProjects;
+using OnlyTasks.Application.Features.Projects.Commands.CreateProject;
+using OnlyTasks.Application.Features.Projects.Queries.GetProjects;
 using OnlyTasks.Domain.Entities;
 using System.Net;
 

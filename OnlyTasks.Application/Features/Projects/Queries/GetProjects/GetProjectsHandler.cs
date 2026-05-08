@@ -2,13 +2,8 @@
 using OnlyTasks.Application.Features.DTOs;
 using OnlyTasks.Domain.Entities;
 using OnlyTasks.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OnlyTasks.Application.Features.Tasks.Queries.Projects.GetProjects
+namespace OnlyTasks.Application.Features.Projects.Queries.GetProjects
 {
     public class GetProjectsHandler : IRequestHandler<GetProjectsQuery, IEnumerable<ProjectDto>>
     {

@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlyTasks.Application.Features.Tasks.Queries.Projects.GetProjects
+namespace OnlyTasks.Application.Features.Tasks.Queries.GetTasks
 {
-    public record GetProjectsQuery 
+    public record GetTasksQuery
     (
+        Guid? ProjectId
         //userId
-    ) : IRequest<IEnumerable<ProjectDto>>;
-    
+    ) : IRequest<IEnumerable<TaskItemDto>>;
 }

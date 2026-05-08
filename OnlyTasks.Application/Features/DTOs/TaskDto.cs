@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace OnlyTasks.Application.Features.DTOs
 {
-    public record TaskItemDto
-    (
-        Guid Id,
-        string Name,
-        string Description,
-        TaskStatus Status
-    );   
+    public class TaskItemDto
+    {
+        public required Guid Id { get; init; }
+        public required string Name { get; init; }
+        public required string Description { get; init; }
+        public required TaskStatus Status { get; init; }
+    };   
 }

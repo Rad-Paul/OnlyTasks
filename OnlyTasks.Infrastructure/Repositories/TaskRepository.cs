@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using OnlyTasks.Domain.Entities;
 using OnlyTasks.Infrastructure.Required;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
+using OnlyTasks.Application.Features.DTOs;
 
 namespace OnlyTasks.Infrastructure.Repositories
 {
@@ -28,7 +30,21 @@ namespace OnlyTasks.Infrastructure.Repositories
 
             await DispatchDomainEvents(task);
         }
-        
+
+        public async Task<IEnumerable<TaskItem>> GetTasksAsync(Guid? projectId)
+        {
+            IQueryable<TaskItem> query = _context.Tasks.AsQueryable();
+
+            if (projectId is null)
+                query = query.Where(t => !t.ProjectId.HasValue);
+            else
+                query = query.Where(t => t.ProjectId.Equals(projectId));
+
+            List<TaskItem> tasks = await query.ToListAsync();
+
+            return tasks;
+        }
+
         public async Task DispatchDomainEvents(TaskItem task)
         {
             foreach(INotification domainEvent in task.DomainEvents)

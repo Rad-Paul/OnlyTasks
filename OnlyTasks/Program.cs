@@ -1,6 +1,4 @@
-using OnlyTasks.Application.Features.Tasks.Commands.CreateProject;
 using OnlyTasks.Application.Features.Tasks.Commands.CreateTask;
-using OnlyTasks.Application.Features.Tasks.Queries.Projects.GetProjects;
 using OnlyTasks.Infrastructure;
 
 namespace OnlyTasks

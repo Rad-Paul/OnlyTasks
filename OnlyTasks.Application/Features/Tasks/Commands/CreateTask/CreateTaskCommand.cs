@@ -10,7 +10,7 @@ namespace OnlyTasks.Application.Features.Tasks.Commands.CreateTask
     public record CreateTaskCommand(
         string Name,
         string Description,
-        Guid ProjectId
+        Guid? ProjectId
     ) : IRequest<Guid>;
 
 }
