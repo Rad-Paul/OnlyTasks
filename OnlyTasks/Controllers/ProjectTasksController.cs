@@ -24,5 +24,12 @@ namespace OnlyTasks.Api.Controllers
             return Ok(tasks);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateTaskForProject(CreateTaskCommand command, Guid projectId)
+        {
+            Guid id = await _mediator.Send(new CreateTaskCommand(command.Name, command.Description, projectId));
+            return Created();
+        }
+
     }
 }

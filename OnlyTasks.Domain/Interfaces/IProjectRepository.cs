@@ -11,5 +11,7 @@ namespace OnlyTasks.Domain.Interfaces
     {
         Task CreateAsync(Project project);
         Task<IEnumerable<Project>> GetAllAsync();
+        Task<Project?> GetAsync(Guid id, bool includeTasks);
+        Task DeleteAsync(Project project, bool includeTasks);
     }
 }

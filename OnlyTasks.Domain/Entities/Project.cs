@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlyTasks.Domain.Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,10 @@ namespace OnlyTasks.Domain.Entities
             Name = name;
             Description = description;
             CreationDate = DateTime.Now;
+
+            AddDomainEvent(new ProjectCreatedDomainEvent(Id));
         }
+
+        public void NotifyDeletion() => Delete(new ProjectDeletedDomainEvent(Id));
     }
 }

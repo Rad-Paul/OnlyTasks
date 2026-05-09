@@ -26,6 +26,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "OnlyTasks.Api.Controllers.ProjectController",
+    "Method": "Delete",
+    "RelativePath": "api/projects/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "includeTasks",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "OnlyTasks.Api.Controllers.ProjectTasksController",
     "Method": "GetTasksForProject",
     "RelativePath": "api/projects/{projectId}/tasks",
@@ -42,6 +63,27 @@
         "Name": "Status",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "projectId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlyTasks.Api.Controllers.ProjectTasksController",
+    "Method": "CreateTaskForProject",
+    "RelativePath": "api/projects/{projectId}/tasks",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "OnlyTasks.Application.Features.Tasks.Commands.CreateTask.CreateTaskCommand",
+        "IsRequired": true
       },
       {
         "Name": "projectId",

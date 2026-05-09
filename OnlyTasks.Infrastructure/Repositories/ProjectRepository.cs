@@ -31,6 +31,33 @@ namespace OnlyTasks.Infrastructure.Repositories
             await DispatchDomainEvents(project);
         }
 
+        public async Task DeleteAsync(Project project, bool includeTasks)
+        {
+            if (includeTasks)
+                _context.Tasks.RemoveRange(project.Tasks);
+
+            _context.Projects.Remove(project);
+            await _context.SaveChangesAsync();
+
+            project.NotifyDeletion();
+
+            await DispatchDomainEvents(project);
+        }
+
+        public async Task<Project?> GetAsync(Guid id, bool includeTasks)
+        {
+            Project? project;
+
+            if(includeTasks)
+                project = await _context.Projects
+                    .Include(p => p.Tasks)
+                    .FirstOrDefaultAsync(p => p.Id == id);
+            else
+                project = await _context.Projects.FirstOrDefaultAsync(p => p.Id == id);
+
+            return project;
+        }
+
         public async Task<IEnumerable<Project>> GetAllAsync()
         {
             List<Project> projects = await _context.Projects.ToListAsync();

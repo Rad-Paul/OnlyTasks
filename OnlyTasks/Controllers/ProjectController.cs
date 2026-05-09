@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlyTasks.Application.Features.DTOs;
 using OnlyTasks.Application.Features.Projects.Commands.CreateProject;
+using OnlyTasks.Application.Features.Projects.Commands.DeleteProject;
 using OnlyTasks.Application.Features.Projects.Queries.GetProjects;
 using OnlyTasks.Domain.Entities;
 using System.Net;
@@ -23,7 +24,7 @@ namespace OnlyTasks.Api.Controllers
         public async Task<IActionResult> Create(CreateProjectCommand command)
         {
             Guid id = await _mediator.Send(command);
-            return Ok(id);
+            return Created();
         }
 
         [HttpGet]
@@ -31,6 +32,13 @@ namespace OnlyTasks.Api.Controllers
         {
             IEnumerable<ProjectDto> projects = await _mediator.Send(new GetProjectsQuery());
             return Ok(projects);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromQuery]bool? includeTasks, Guid id)
+        {
+            await _mediator.Send(new DeleteProjectCommand(id, includeTasks ?? false));
+            return NoContent();
         }
     }
 }

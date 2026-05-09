@@ -30,13 +30,15 @@ namespace OnlyTasks.Infrastructure.Repositories
         {
             IQueryable<TaskItem> query = _context.Tasks.AsQueryable();
 
-            if (projectId is not null)
-                query = query.Where(t => t.ProjectId.Equals(projectId));
+            bool getUnassignedTasks = projectId is null;
+
+            if (!getUnassignedTasks)
+                query = query.Where(t => t.ProjectId == projectId);
             else
                 query = query.Where(t => !t.ProjectId.HasValue);
 
             if (status is not null)
-                query = query.Where(t => t.Status.Equals(status));
+                query = query.Where(t => t.Status == status);
 
 
             List<TaskItem> tasks = await query.ToListAsync();

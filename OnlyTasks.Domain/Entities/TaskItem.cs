@@ -26,5 +26,7 @@ namespace OnlyTasks.Domain.Entities
 
             AddDomainEvent(new TaskCreatedDomainEvent(Id));
         }
+
+        
     }
 }
