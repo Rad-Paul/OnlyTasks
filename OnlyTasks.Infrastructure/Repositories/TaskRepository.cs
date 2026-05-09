@@ -1,14 +1,9 @@
-﻿using System;
-using OnlyTasks.Domain.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OnlyTasks.Domain.Interfaces;
 using OnlyTasks.Domain.Entities;
 using OnlyTasks.Infrastructure.Required;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using OnlyTasks.Application.Features.DTOs;
+using TaskStatus = OnlyTasks.Domain.Enums.TaskStatus;
 
 namespace OnlyTasks.Infrastructure.Repositories
 {
@@ -31,14 +26,18 @@ namespace OnlyTasks.Infrastructure.Repositories
             await DispatchDomainEvents(task);
         }
 
-        public async Task<IEnumerable<TaskItem>> GetTasksAsync(Guid? projectId)
+        public async Task<IEnumerable<TaskItem>> GetTasksAsync(Guid? projectId, TaskStatus? status)
         {
             IQueryable<TaskItem> query = _context.Tasks.AsQueryable();
 
-            if (projectId is null)
-                query = query.Where(t => !t.ProjectId.HasValue);
-            else
+            if (projectId is not null)
                 query = query.Where(t => t.ProjectId.Equals(projectId));
+            else
+                query = query.Where(t => !t.ProjectId.HasValue);
+
+            if (status is not null)
+                query = query.Where(t => t.Status.Equals(status));
+
 
             List<TaskItem> tasks = await query.ToListAsync();
 

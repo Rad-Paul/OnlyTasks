@@ -17,7 +17,7 @@ namespace OnlyTasks.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetTasks(GetTasksQuery query)
+        public async Task<IActionResult> GetTasks([FromQuery]GetTasksQuery query)
         {
             IEnumerable<TaskItemDto> tasks = await _mediator.Send(query);
             return Ok(tasks);

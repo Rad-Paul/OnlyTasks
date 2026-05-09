@@ -28,19 +28,24 @@
   {
     "ContainingType": "OnlyTasks.Api.Controllers.ProjectTasksController",
     "Method": "GetTasksForProject",
-    "RelativePath": "api/projects{projectId}/tasks/{id}",
+    "RelativePath": "api/projects/{projectId}/tasks",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
+        "Name": "ProjectId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
       },
       {
         "Name": "projectId",
-        "Type": "",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -55,9 +60,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "query",
-        "Type": "OnlyTasks.Application.Features.Tasks.Queries.GetTasks.GetTasksQuery",
-        "IsRequired": true
+        "Name": "ProjectId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

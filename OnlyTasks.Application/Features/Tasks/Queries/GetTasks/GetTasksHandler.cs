@@ -2,11 +2,6 @@
 using OnlyTasks.Application.Features.DTOs;
 using OnlyTasks.Domain.Entities;
 using OnlyTasks.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlyTasks.Application.Features.Tasks.Queries.GetTasks
 {
@@ -20,7 +15,7 @@ namespace OnlyTasks.Application.Features.Tasks.Queries.GetTasks
 
         public async Task<IEnumerable<TaskItemDto>> Handle(GetTasksQuery query, CancellationToken cancellationToken)
         {
-            IEnumerable<TaskItem> tasks = await _repository.GetTasksAsync(query.ProjectId);
+            IEnumerable<TaskItem> tasks = await _repository.GetTasksAsync(query.ProjectId, query.Status);
 
             List<TaskItemDto> taskDtos = tasks.Select(t => new TaskItemDto 
             { 

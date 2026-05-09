@@ -7,7 +7,7 @@ using OnlyTasks.Application.Features.Tasks.Queries.GetTasks;
 namespace OnlyTasks.Api.Controllers
 {
     [ApiController]
-    [Route("api/projects{projectId}/tasks")]
+    [Route("api/projects/{projectId}/tasks")]
     public class ProjectTasksController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -18,9 +18,9 @@ namespace OnlyTasks.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetTasksForProject(Guid projectId)
+        public async Task<IActionResult> GetTasksForProject([FromQuery]GetTasksQuery query, Guid projectId)
         {
-            IEnumerable<TaskItemDto> tasks = await _mediator.Send(new GetTasksQuery(projectId));
+            IEnumerable<TaskItemDto> tasks = await _mediator.Send(new GetTasksQuery(projectId, query.Status));
             return Ok(tasks);
         }
 

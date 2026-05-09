@@ -1,14 +1,11 @@
 ﻿using OnlyTasks.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using TaskStatus = OnlyTasks.Domain.Enums.TaskStatus;
 
 namespace OnlyTasks.Domain.Interfaces
 {
     public interface ITaskRepository
     {
         Task CreateTaskAsync(TaskItem task);
-        Task<IEnumerable<TaskItem>> GetTasksAsync(Guid? id);
+        Task<IEnumerable<TaskItem>> GetTasksAsync(Guid? id, TaskStatus? status);
     }
 }
