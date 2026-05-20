@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using OnlyTasks.Application.Features.DTOs;
 using OnlyTasks.Application.Features.Projects.Commands.CreateProject;
 using OnlyTasks.Application.Features.Projects.Commands.DeleteProject;
+using OnlyTasks.Application.Features.Projects.Queries.GetProject;
 using OnlyTasks.Application.Features.Projects.Queries.GetProjects;
 using OnlyTasks.Domain.Entities;
 using System.Net;
@@ -27,6 +28,13 @@ namespace OnlyTasks.Api.Controllers
             return Created();
         }
 
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> Get([FromQuery]bool? includeTasks, Guid id)
+        {
+            ProjectDto project = await _mediator.Send(new GetProjectQuery(id, includeTasks ?? false));
+            return Ok(project);
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -40,5 +48,6 @@ namespace OnlyTasks.Api.Controllers
             await _mediator.Send(new DeleteProjectCommand(id, includeTasks ?? false));
             return NoContent();
         }
+
     }
 }

@@ -46,6 +46,23 @@ namespace OnlyTasks.Infrastructure.Repositories
             return tasks;
         }
 
+        public async Task<TaskItem?> GetTaskAsync(Guid id)
+        {
+            TaskItem? task = await _context.Tasks.FindAsync(id);
+
+            return task;
+        }
+
+        public async Task DeleteTaskAsync(TaskItem task)
+        {
+            _context.Tasks.Remove(task);
+            await _context.SaveChangesAsync();
+
+            task.NotifyDeletion();
+
+            await DispatchDomainEvents(task);
+        }
+
         public async Task DispatchDomainEvents(TaskItem task)
         {
             foreach(INotification domainEvent in task.DomainEvents)

@@ -27,6 +27,6 @@ namespace OnlyTasks.Domain.Entities
             AddDomainEvent(new TaskCreatedDomainEvent(Id));
         }
 
-        
+        public void NotifyDeletion() => Delete(new TaskDeletedDomainEvent(Id));
     }
 }

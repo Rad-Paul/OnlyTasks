@@ -51,9 +51,9 @@ namespace OnlyTasks.Infrastructure.Repositories
             if(includeTasks)
                 project = await _context.Projects
                     .Include(p => p.Tasks)
-                    .FirstOrDefaultAsync(p => p.Id == id);
+                    .FirstAsync(p => p.Id == id);
             else
-                project = await _context.Projects.FirstOrDefaultAsync(p => p.Id == id);
+                project = await _context.Projects.FirstAsync(p => p.Id == id);
 
             return project;
         }

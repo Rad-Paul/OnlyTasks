@@ -17,13 +17,8 @@ namespace OnlyTasks.Application.Features.Projects.Queries.GetProjects
         {
             IEnumerable<Project> projects = await _repository.GetAllAsync();
 
-            List<ProjectDto> projectDtos = projects.Select(p => new ProjectDto
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Description = p.Description,
-                CreationDate = p.CreationDate,
-            }).ToList();
+            List<ProjectDto> projectDtos = projects.Select(p => ProjectDto.EntityToDto(p))
+                .ToList();
 
             return projectDtos;
         }
