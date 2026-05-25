@@ -22,9 +22,5 @@ namespace OnlyTasks.Domain.Entities
             _domainEvents.Clear();
         }
 
-        protected void Delete(INotification eventItem)
-        {
-            AddDomainEvent(eventItem);
-        }
     }
 }

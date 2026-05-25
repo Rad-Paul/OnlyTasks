@@ -1,8 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using OnlyTasks.Api.Dtos;
 using OnlyTasks.Application.Features.DTOs;
 using OnlyTasks.Application.Features.Tasks.Commands.CreateTask;
 using OnlyTasks.Application.Features.Tasks.Commands.DeleteTask;
+using OnlyTasks.Application.Features.Tasks.Commands.UpdateTask;
 using OnlyTasks.Application.Features.Tasks.Queries.GetTask;
 using OnlyTasks.Application.Features.Tasks.Queries.GetTasks;
 
@@ -39,10 +41,17 @@ namespace OnlyTasks.Api.Controllers
             return Ok(id);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete(DeleteTaskCommand command)
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> Delete(Guid id)
         {
-            await _mediator.Send(command);
+            await _mediator.Send(new DeleteTaskCommand(id));
+            return NoContent();
+        }
+
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Update(UpdateTaskDto data, Guid id)
+        {
+            await _mediator.Send(new UpdateTaskCommand(id, data.ProjectId, data.Name, data.Description));
             return NoContent();
         }
     }

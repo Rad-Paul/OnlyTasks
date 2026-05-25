@@ -10,7 +10,7 @@ namespace OnlyTasks.Domain.Entities
     public class TaskItem : Entity
     {
         public Guid Id { get; private set; }
-        public Guid? ProjectId { get; init; }
+        public Guid? ProjectId { get; private set; }
         public string Name { get; private set; }
         public string Description { get; private set; }
         public TaskStatus Status { get; private set; }
@@ -27,6 +27,20 @@ namespace OnlyTasks.Domain.Entities
             AddDomainEvent(new TaskCreatedDomainEvent(Id));
         }
 
-        public void NotifyDeletion() => Delete(new TaskDeletedDomainEvent(Id));
+        public void NotifyDeletion() => AddDomainEvent(new TaskDeletedDomainEvent(Id));
+
+        public void UpdateTask(Guid? projectId, string? name, string? description)
+        {
+            if(!projectId.HasValue)
+                ProjectId = projectId;
+
+            if(name is not null) 
+                Name = name;
+
+            if(description is not null)
+                Description = description;
+
+            AddDomainEvent(new TaskUpdatedDomainEvent(Id));
+        }
     }
 }

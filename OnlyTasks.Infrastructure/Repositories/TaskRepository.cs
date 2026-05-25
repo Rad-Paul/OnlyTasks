@@ -72,5 +72,12 @@ namespace OnlyTasks.Infrastructure.Repositories
 
             task.ClearDomainEvents();
         }
+
+        public async Task SaveChangesAsync(TaskItem task)
+        {
+            await _context.SaveChangesAsync();
+
+            await DispatchDomainEvents(task);
+        }
     }
 }

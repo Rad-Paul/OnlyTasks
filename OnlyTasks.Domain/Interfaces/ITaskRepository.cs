@@ -9,5 +9,6 @@ namespace OnlyTasks.Domain.Interfaces
         Task<IEnumerable<TaskItem>> GetTasksAsync(Guid? projectId, TaskStatus? status);
         Task<TaskItem?> GetTaskAsync(Guid id);
         Task DeleteTaskAsync(TaskItem task);
+        Task SaveChangesAsync(TaskItem task);
     }
 }

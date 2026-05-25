@@ -34,7 +34,7 @@ namespace OnlyTasks.Infrastructure.Repositories
         public async Task DeleteAsync(Project project, bool includeTasks)
         {
             if (includeTasks)
-                _context.Tasks.RemoveRange(project.Tasks);
+                _context.Tasks.RemoveRange(project.Tasks!);
 
             _context.Projects.Remove(project);
             await _context.SaveChangesAsync();
@@ -75,5 +75,11 @@ namespace OnlyTasks.Infrastructure.Repositories
             project.ClearDomainEvents();
         }
 
+        public async Task SaveChangesAsync(Project project)
+        {
+            await _context.SaveChangesAsync();
+
+            await DispatchDomainEvents(project);
+        }
     }
 }

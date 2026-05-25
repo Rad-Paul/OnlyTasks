@@ -1,8 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using OnlyTasks.Api.DTOs;
 using OnlyTasks.Application.Features.DTOs;
 using OnlyTasks.Application.Features.Projects.Commands.CreateProject;
 using OnlyTasks.Application.Features.Projects.Commands.DeleteProject;
+using OnlyTasks.Application.Features.Projects.Commands.UpdateProject;
 using OnlyTasks.Application.Features.Projects.Queries.GetProject;
 using OnlyTasks.Application.Features.Projects.Queries.GetProjects;
 using OnlyTasks.Domain.Entities;
@@ -42,7 +44,14 @@ namespace OnlyTasks.Api.Controllers
             return Ok(projects);
         }
 
-        [HttpDelete("{id}")]
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Update(UpdateProjectDto data, Guid id)
+        {
+            await _mediator.Send(new UpdateProjectCommand(id, data.Name, data.Description));
+            return NoContent();
+        }
+
+        [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete([FromQuery]bool? includeTasks, Guid id)
         {
             await _mediator.Send(new DeleteProjectCommand(id, includeTasks ?? false));

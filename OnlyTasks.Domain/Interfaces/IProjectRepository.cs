@@ -13,5 +13,6 @@ namespace OnlyTasks.Domain.Interfaces
         Task<IEnumerable<Project>> GetAllAsync();
         Task<Project?> GetAsync(Guid id, bool includeTasks);
         Task DeleteAsync(Project project, bool includeTasks);
+        Task SaveChangesAsync(Project project);
     }
 }

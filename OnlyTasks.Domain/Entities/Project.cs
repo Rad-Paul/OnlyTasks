@@ -10,9 +10,9 @@ namespace OnlyTasks.Domain.Entities
     public class Project : Entity
     {
         public Guid Id { get; private set; }
-        public string Name { get; set; }
-        public string Description { get;  set; }
-        public IEnumerable<TaskItem>? Tasks { get; set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public IEnumerable<TaskItem>? Tasks { get; private set; }
         public DateTime CreationDate { get; init; }
 
         public Project(string name, string description)
@@ -24,6 +24,24 @@ namespace OnlyTasks.Domain.Entities
             AddDomainEvent(new ProjectCreatedDomainEvent(Id));
         }
 
-        public void NotifyDeletion() => Delete(new ProjectDeletedDomainEvent(Id));
+        public void ChangeName(string? name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return;
+
+            Name = name;
+            AddDomainEvent(new ProjectUpdatedDomainEvent(Id));
+        }
+
+        public void ChangeDescription(string? description)
+        {
+            if (string.IsNullOrEmpty(description))
+                return;
+
+            Description = description;
+            AddDomainEvent(new ProjectUpdatedDomainEvent(Id));
+        }
+
+        public void NotifyDeletion() => AddDomainEvent(new ProjectDeletedDomainEvent(Id));
     }
 }
