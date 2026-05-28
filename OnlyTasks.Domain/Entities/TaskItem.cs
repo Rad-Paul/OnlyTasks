@@ -42,5 +42,17 @@ namespace OnlyTasks.Domain.Entities
 
             AddDomainEvent(new TaskUpdatedDomainEvent(Id));
         }
+
+        public void ChangeStatus(TaskStatus status)
+        {
+            if (status == this.Status)
+                return;
+
+            TaskStatus previousStatus = this.Status;
+
+            this.Status = status;
+
+            AddDomainEvent(new TaskStatusChangedDomainEvent(Id, previousStatus, status));
+        }
     }
 }

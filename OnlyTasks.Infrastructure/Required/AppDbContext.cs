@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using OnlyTasks.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,18 +10,20 @@ using System.Threading.Tasks;
 
 namespace OnlyTasks.Infrastructure.Required
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User>
     {
         public DbSet<TaskItem> Tasks => Set<TaskItem>();
         public DbSet<Project> Projects => Set<Project>();
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            
+           
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<TaskItem>()
                 .Property(x => x.Id);
 

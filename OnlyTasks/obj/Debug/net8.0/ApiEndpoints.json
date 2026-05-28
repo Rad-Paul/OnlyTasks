@@ -174,15 +174,15 @@
   },
   {
     "ContainingType": "OnlyTasks.Api.Controllers.TasksController",
-    "Method": "Delete",
-    "RelativePath": "api/tasks",
-    "HttpMethod": "DELETE",
+    "Method": "GetTask",
+    "RelativePath": "api/tasks/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "command",
-        "Type": "OnlyTasks.Application.Features.Tasks.Commands.DeleteTask.DeleteTaskCommand",
+        "Name": "id",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -190,9 +190,9 @@
   },
   {
     "ContainingType": "OnlyTasks.Api.Controllers.TasksController",
-    "Method": "GetTask",
+    "Method": "Delete",
     "RelativePath": "api/tasks/{id}",
-    "HttpMethod": "GET",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -217,6 +217,54 @@
         "Type": "OnlyTasks.Api.Dtos.UpdateTaskDto",
         "IsRequired": true
       },
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlyTasks.Api.Controllers.TaskStatusController",
+    "Method": "Complete",
+    "RelativePath": "api/tasks/{id}/status/complete",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlyTasks.Api.Controllers.TaskStatusController",
+    "Method": "Fail",
+    "RelativePath": "api/tasks/{id}/status/fail",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlyTasks.Api.Controllers.TaskStatusController",
+    "Method": "OnGoing",
+    "RelativePath": "api/tasks/{id}/status/ongoing",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
         "Name": "id",
         "Type": "System.Guid",

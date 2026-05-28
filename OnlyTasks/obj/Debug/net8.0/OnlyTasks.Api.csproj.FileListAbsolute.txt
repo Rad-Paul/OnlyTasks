@@ -179,3 +179,9 @@ C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Wo
 C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\coding\.NET\OnlyTasks\OnlyTasks\obj\Debug\net8.0\OnlyTasks.Api.sourcelink.json
+C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
