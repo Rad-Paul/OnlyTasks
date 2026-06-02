@@ -21,12 +21,12 @@ namespace OnlyTasks.Infrastructure
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
 
-            configuration.GetSection("JWT_Settings");
+            var jwtSettings = configuration.GetSection("JWT_Settings");
 
             string? secretKey = Environment.GetEnvironmentVariable("OnlyTasksSecret");
 
             if(secretKey is null)
-                throw new ArgumentNullException(nameof(secretKey));
+                //throw new ArgumentNullException(nameof(secretKey));
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -68,6 +68,7 @@ namespace OnlyTasks.Infrastructure
             services.AddScoped<ITaskRepository, TaskRepository>();
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddSingleton<IMessageBus, InMemoryMessageBus>();
+            services.AddSingleton<IRabbitMQPublisher, RabbitMQPublisher>();
 
             return services;
         }

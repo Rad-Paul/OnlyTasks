@@ -11,16 +11,16 @@ namespace OnlyTasks.Application.Features.Tasks.Commands.CreateTask
 {
     public class TaskCreatedEventHandler : INotificationHandler<TaskCreatedDomainEvent>
     {
-        private readonly IMessageBus _messageBus;
+        private readonly IRabbitMQPublisher _publisher;
 
-        public TaskCreatedEventHandler(IMessageBus messageBus)
+        public TaskCreatedEventHandler(IRabbitMQPublisher publisher)
         {
-            _messageBus = messageBus;
+            _publisher = publisher;
         }
 
         public async Task Handle(TaskCreatedDomainEvent notification, CancellationToken ct)
         {
-            await _messageBus.PublishAsync(
+            await _publisher.PublishTask(
                 new TaskCreatedIntegrationEvent(notification.TaskId)
             );
         }

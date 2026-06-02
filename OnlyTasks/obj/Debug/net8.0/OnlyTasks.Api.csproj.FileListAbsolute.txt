@@ -185,3 +185,4 @@ C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptog
 C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\coding\.NET\OnlyTasks\OnlyTasks\bin\Debug\net8.0\RabbitMQ.Client.dll

@@ -236,6 +236,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.15, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[7.2.1, )"
             }
           },
           "imports": [

@@ -8,10 +8,10 @@ namespace OnlyTasks.Application.Features.Tasks.Commands.CreateTask
 {
     public class TaskCreatedIntegrationEvent
     {
-        public Guid Id { get; }
-        public TaskCreatedIntegrationEvent(Guid id)
+        public Guid TaskId { get; init; }
+        public TaskCreatedIntegrationEvent(Guid taskId)
         {
-            Id = id;
+            TaskId = taskId;
         }
     }
 }
